@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Virtue / Vice</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/list.css">
+    <link rel="stylesheet" href="../sweetalert/dist/sweetalert.css">
+    <script src="../js/Rollbar.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+    <script src="../sweetalert/dist/sweetalert.min.js"></script>
+    
+    <!-- start Mixpanel -->
+    <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("0d2f16c090a094f434fd3a30d5df6bb6");</script><!-- end Mixpanel -->
+
+</head>
+<body>
+<button type="button" id="logOut" title="Log Out">Log Out</button>
+    <div>
+    <section>
+        <h1>Habit List</h1>
+        <h2 id="noHabits" style="text-align: center">Please add a habit below!</h2>
+        <ul id="habit-list">
+            <template id = "habits">
+            <li>
+                <ul class="habit-info">
+                    <li><div class="habit-name"></div>
+                        <button type="button" class="op op-del" title="delete habit" onclick="deleteHabit(this)">
+                        <img src="../img/delete.svg" alt="Del">
+                        </button>
+                    
+                        <button type="button" class="op op-edit" title="edit habit" onclick="editHabit(this)">
+                        <img src="../img/edit.svg" alt="Edit">
+                        </button>
+                    </li>
+                    <li><img class="habit-icon" src="" alt="habit icon"></li>
+                    <li><p class="habit-desc"></p></li>
+                    <input type="hidden" class="habit-id" name="habit-id" data-habitId="">
+                </ul>
+                <div class="message">
+                    <span class="message-total">
+                        <strong ><span class="habit-days-in-a-row"></span></strong> days in a row! Best Record: <strong ><span class="habit-best-record"></span></strong><br>
+                       <progress class="habit-progress" max="100" value="0"></progress>
+                    </span><br>
+                    <span visibility="hidden">Completed <strong id="habitCounter" class = "completed"></strong>/<strong id="habitStop" class = "totalNum"></strong> for today!</span>
+                </div>
+                <div class="habit-op">
+                    <button type="button" class="op op-done" title="done" onclick ="done(this)"  value="0" data-count-stop="3">
+                        <img src="../img/done.svg" alt="Done">
+                    </button>
+                </div>
+            </li>
+            </template>
+        </ul>
+        
+    </section>
+
+    </div>
+
+    <button type="button" id="addHabit" onclick="location.href='add.html'" title="add habit">+</button>
+
+    <script src="../js/list.js"></script>
+    <script src="../js/notifications.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</body>
+</html>

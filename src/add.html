@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Add a habit</title>
+		<link rel="stylesheet" href="../css/forms.css">
+        <link rel="stylesheet" href="../sweetalert/dist/sweetalert.css">
+        <script src="../js/Rollbar.js"></script>
+		<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+        <script src="../sweetalert/dist/sweetalert.min.js"></script>
+        
+	</head>
+	<body>
+		<button type="button" id="logOut" title="Log Out">Log Out</button>
+
+		<div class="forms">
+			<h2>Add A Habit</h2>
+			<form>
+				<p><label><span id="title_text">Habit Title</span></label></p>
+                <div id="noTitle" style="color:Red;display:none">Please enter habit title</div>
+				<p><input id="title" type="text" name="fullname" placeholder="Exercise 30 minutes" maxlength="16" required></p>
+                <p><label><span id="title_text">Habit Description</span></label></p>
+				<p><input id="description" type="text" name="description" placeholder="Optional" maxlength="128"></p>
+				<p><label>Habit Icon</label></p>
+				<img id="icon1" class="icon" onclick="selectImage('icon1');" data-active="false" src="../img/sleep.jpg" alt="sleep image"/>
+				<img id="icon2" class="icon" onclick="selectImage('icon2');" data-active="false" src="../img/salad.jpg" alt="eat image"/>
+				<img id="icon3" class="icon" onclick="selectImage('icon3');" data-active="false" src="../img/run.jpg" alt="run image"/>
+				<img id="icon4" class="icon" src="../img/add.png" alt="find a image" data-active="false"/>
+				<p><label>Weekly Frequency</label></p>
+                <div id="noWFreq" style="color:Red;display:none">Please provide weekly frequency</div>
+				<div id="ck-button">
+					<label> <input type="checkbox" class="weekly-freq" name="date" value="sunday"><span>Sun</span></label>
+					<label> <input type="checkbox" class="weekly-freq" name="date" value="monday"><span>Mon</span></label>
+					<label> <input type="checkbox" class="weekly-freq" name="date" value="tuesday"><span>Tues</span></label>
+					<label> <input type="checkbox" class="weekly-freq" name="date" value="wednesday"><span>Wed</span></label>
+					<label> <input type="checkbox" class="weekly-freq" name="date" value="thursday"><span>Thur</span></label>
+					<label> <input type="checkbox" class="weekly-freq" name="date" value="friday"><span>Fri</span></label>
+					<label> <input type="checkbox" class="weekly-freq" name="date" value="saturday"><span>Sat</span></label>
+
+				</div>
+		
+				<p><label>Daily Frequency</label></p>
+                <div id="noDFreq" style="color:Red;display:none">Please provide daily frequency</div>
+				<div id="daily-button">
+					<label> <input type="radio" class="daily-freq" name="day" value="1"><span>1</span></label>
+					<label> <input type="radio" class="daily-freq" name="day" value="2"><span>2</span></label>
+					<label> <input type="radio" class="daily-freq" name="day" value="3"><span>3</span></label>
+
+					<span id="times">times</span>
+				</div>
+				<p><label><span id="others_text">Others: </span><input id="others" type="number" min="4" max="25" name="day" placeholder="More than 3 times"></label></p>
+				<p id="save_p"><input id="save" type="button" value="Save It"></p>
+				
+			</form>
+
+		</div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+		<script src="../js/add.js"></script>
+
+	</body>
+</html>

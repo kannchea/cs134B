@@ -1,0 +1,14 @@
+{
+  "name": "Virtue/Vice",
+  "description": "Keep your habits in line.",
+  "version": "0.1",
+  "manifest_version": 2,
+  //"content_security_policy": "default-src 'self' style-src 'self' 'unsafe-inline';", 
+
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "icons": { "128": "logo.png" }
+}
